@@ -22,6 +22,8 @@ import com.portal.utility.PortalHelper;
 import com.portal.vo.CampaignVO;
 
 /**
+ * DAO class to call the DB and get the data.
+ * 
  * @author Vikram
  *
  */
@@ -66,6 +68,7 @@ public class CampaignDaoImpl implements CampaignDao {
 		detailsQuery.setLength(0);
 		detailsQuery.append(GET_CAMPAIGN_DETAILS);
 		if (null != campaignObj) {
+			//Adding all filter conditions to be query
 			if (null != campaignObj.getDepartment() && !campaignObj.getDepartment().isEmpty()) {
 				detailsQuery.append(" AND DEPARTMENT_CAT = ? ");
 			}
@@ -88,6 +91,7 @@ public class CampaignDaoImpl implements CampaignDao {
 		try {
 			connection = getConnection();
 			prepStatement = connection.prepareStatement(detailsQuery.toString());
+			//Adding all filter conditions to be query
 			if (null != campaignObj) {
 				if (null != campaignObj.getDepartment() && !campaignObj.getDepartment().isEmpty()) {
 					prepStatement.setString(index++, campaignObj.getDepartment());
