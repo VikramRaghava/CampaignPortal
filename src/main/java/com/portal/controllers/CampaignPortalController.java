@@ -16,6 +16,9 @@ import com.portal.service.CampaignService;
 import com.portal.vo.CampaignVO;
 
 /**
+ * This class contains all the API calls we will build to 
+ * interact with the campaign data.
+ * 
  * @author Vikram
  *
  */
@@ -26,6 +29,13 @@ public class CampaignPortalController {
 	@Autowired
 	CampaignService campaignService;
 
+	/**
+	 * API to get the campaign details.
+	 * 
+	 * @param campaignObj - the input data obtained
+	 * @return list of campaignVO objects
+	 * 
+	 */
 	@GetMapping(value = "/getCampaignDetails")
 	public String getCampaignDetails(CampaignVO campaignObj) {
 		LOGGER.info("Entering the logic of getCampaignDetails");
